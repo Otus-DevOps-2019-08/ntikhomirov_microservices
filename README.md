@@ -54,3 +54,14 @@ ba649db911cb        hello-world             "/hello"                 2 days ago 
 de0a26de4cba        hello-world             "/hello"                 2 days ago          Exited (0) 2 days ago                       pensive_wozniak
 8064f3f6680e        hello-world             "/hello"                 3 days ago          Exited (0) 3 days ago                       elegant_stonebraker
 ```
+
+5. Все используемые докеры в системе
+```
+-bash-4.2$ docker images
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+molecule_local/ubuntu   latest              969d783d278f        2 days ago          131 MB
+molecule_local/centos   7                   7e595de0760b        2 days ago          231 MB
+docker.io/centos        7                   5e35e350aded        2 weeks ago         203 MB
+docker.io/ubuntu        latest              775349758637        3 weeks ago         64.2 MB
+docker.io/hello-world   latest              fce289e99eb9        10 months ago       1.84 kB
+```
