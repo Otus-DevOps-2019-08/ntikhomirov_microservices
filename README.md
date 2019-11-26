@@ -4,9 +4,14 @@
 <a name="HW15"></a>
 ## Примечание к ДЗ№15
 1. Машина в облаки Goole
-2. ```[root@jenkins tihomirovnv]# cat /etc/redhat-release
-CentOS Linux release 7.7.1908 (Core)```
-3. ```
+2.
+```
+[root@jenkins tihomirovnv]# cat /etc/redhat-release
+CentOS Linux release 7.7.1908 (Core)
+```
+
+3.
+```
 [root@jenkins tihomirovnv]# docker version
 Client:
  Version:         1.13.1
@@ -28,10 +33,12 @@ Server:
  Experimental:    false
 
 ```
+
 ```
 [root@jenkins tihomirovnv]# docker-compose --version
 docker-compose version 1.18.0, build 8dd22a9
 ```
+
 ```
 [root@jenkins tihomirovnv]# /usr/local/bin/docker-machine -version
 docker-machine version 0.16.0, build 702c267f
