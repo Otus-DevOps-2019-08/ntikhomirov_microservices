@@ -1,0 +1,13 @@
+log/*
+secret/*
+*/*.test.json
+*/*/*.pem
+*.retry
+jdauphant.nginx
+
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
