@@ -10,7 +10,7 @@
 CentOS Linux release 7.7.1908 (Core)
 ```
 
-3.
+3. 
 ```
 [root@jenkins tihomirovnv]# docker version
 Client:
