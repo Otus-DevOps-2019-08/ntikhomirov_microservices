@@ -10,7 +10,7 @@
 CentOS Linux release 7.7.1908 (Core)
 ```
 
-3. 
+3.
 ```
 [root@jenkins tihomirovnv]# docker version
 Client:
@@ -42,4 +42,15 @@ docker-compose version 1.18.0, build 8dd22a9
 ```
 [root@jenkins tihomirovnv]# /usr/local/bin/docker-machine -version
 docker-machine version 0.16.0, build 702c267f
+```
+
+4. docker ps -a (произвожу тестирования ansible roles molecule+docker, вижу ее остатки )
+```
+-bash-4.2$ docker ps -a
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS                  PORTS               NAMES
+9e72053ca3cb        molecule_local/ubuntu   "bash -c 'while tr..."   46 hours ago        Up 46 hours                                 ubuntu_16_04
+ba649db911cb        hello-world             "/hello"                 2 days ago          Exited (0) 2 days ago                       flamboyant_curran
+1a3d0c361965        hello-world             "/hello"                 2 days ago          Exited (0) 2 days ago                       cocky_carson
+de0a26de4cba        hello-world             "/hello"                 2 days ago          Exited (0) 2 days ago                       pensive_wozniak
+8064f3f6680e        hello-world             "/hello"                 3 days ago          Exited (0) 3 days ago                       elegant_stonebraker
 ```
