@@ -65,3 +65,32 @@ docker.io/centos        7                   5e35e350aded        2 weeks ago     
 docker.io/ubuntu        latest              775349758637        3 weeks ago         64.2 MB
 docker.io/hello-world   latest              fce289e99eb9        10 months ago       1.84 kB
 ```
+6. Собираем образы
+```
+docker build -t reddit:latest .
+
+....
+---> 7d8ee5f66e40
+Removing intermediate container 314b4844570a
+Step 15/15 : CMD /start.sh
+---> Running in 3405fec63143
+---> 64cfdc12d792
+Removing intermediate container 3405fec63143
+Successfully built 64cfdc12d792
+``` 
+7. Смотрим образы
+```
+[root@jenkins docker-monolith]# docker images
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+reddit                  latest              64cfdc12d792        2 minutes ago       958 MB
+<none>                  <none>              a05eeed10b58        3 hours ago         948 MB
+<none>                  <none>              48855d405ecb        3 hours ago         947 MB
+<none>                  <none>              7eb05b1399d5        3 hours ago         947 MB
+<none>                  <none>              4924af78e040        3 hours ago         947 MB
+<none>                  <none>              488ded718b88        3 hours ago         602 MB
+<none>                  <none>              58cf4ba88dc1        4 hours ago         647 MB
+molecule_local/ubuntu   latest              969d783d278f        4 days ago          131 MB
+docker.io/ubuntu        16.04               5f2bf26e3524        3 weeks ago         123 MB
+docker.io/ubuntu        18.04               775349758637        3 weeks ago         64.2 MB
+docker.io/ubuntu        latest              775349758637        3 weeks ago         64.2 MB
+```
