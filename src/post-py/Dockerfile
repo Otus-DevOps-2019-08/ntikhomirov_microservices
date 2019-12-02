@@ -3,7 +3,7 @@ FROM python:3.6.0-alpine
 WORKDIR /app
 ADD . /app
 
-RUN apk add python-dev libffi-dev openssl-dev gcc libc-dev make
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev
 RUN pip install cython thriftpy2
 RUN pip install --upgrade pip
 RUN pip install -r /app/requirements.txt
