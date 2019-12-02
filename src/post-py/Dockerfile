@@ -2,6 +2,8 @@ FROM python:3.6.0-alpine
 
 WORKDIR /app
 ADD . /app
+
+RUN apt install gcc
 RUN pip install cython thriftpy2
 RUN pip install --upgrade pip
 RUN pip install -r /app/requirements.txt
