@@ -131,3 +131,10 @@ docker run -d -e POST_DATABASE_HOST=post_db_test --network=reddit --network-alia
 docker run -d -e COMMENT_DATABASE_HOST=comment_db_test --network=reddit --network-alias=comment_test nvtikhomirov/comment:1.0
 docker run -d -e POST_SERVICE_HOST=post_test -e COMMENT_SERVICE_HOST=comment_test --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
 ```
+```
+-bash-4.2$ docker images
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+nvtikhomirov/ui        1.1                 728dd4cf6605        9 minutes ago       458 MB
+nvtikhomirov/ui        1.0                 b697c8f0d109        2 days ago          783 MB
+
+```
