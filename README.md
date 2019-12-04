@@ -137,4 +137,14 @@ REPOSITORY             TAG                 IMAGE ID            CREATED          
 nvtikhomirov/ui        1.1                 728dd4cf6605        9 minutes ago       458 MB
 nvtikhomirov/ui        1.0                 b697c8f0d109        2 days ago          783 MB
 
+```  
+Образ на Alpine
 ```
+bash-4.2$ docker images
+REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+nvtikhomirov/ui                1.2                 67d25e9c0ac0        11 seconds ago      77.5 MB
+nvtikhomirov/ui                1.1                 728dd4cf6605        45 minutes ago      458 MB
+nvtikhomirov/ui                1.0                 b697c8f0d109        2 days ago          783 MB
+
+```  
+Alpine подсказывает каких пакетов нету и какие версии нужны ЫЫ!
