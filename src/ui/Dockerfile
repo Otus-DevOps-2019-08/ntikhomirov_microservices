@@ -16,11 +16,11 @@ ENV POST_SERVICE_PORT 5000
 ENV COMMENT_SERVICE_HOST comment
 ENV COMMENT_SERVICE_PORT 9292
 
-RUN "apt-get purge man-db manpages"
-RUN "rm -rf /usr/share/man"
-RUN "rm -rf /usr/share/doc"
-RUN "rm -rf /usr/share/doc-base"
-RUN "apt-get clean"
-RUN "apt-get autoclean"
+RUN apt-get purge man-db manpages
+RUN rm -rf /usr/share/man
+RUN rm -rf /usr/share/doc
+RUN rm -rf /usr/share/doc-base
+RUN apt-get clean
+RUN apt-get autoclean
 
 CMD ["puma"]
