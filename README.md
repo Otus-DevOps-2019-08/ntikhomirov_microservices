@@ -1,5 +1,8 @@
 ##### Содержание
 [Домашня работа №15](#HW15)    
+[Домашня работа №16](#HW16)    
+
+
 
 <a name="HW15"></a>
 ## Примечание к ДЗ№15
@@ -77,7 +80,7 @@ Step 15/15 : CMD /start.sh
 ---> 64cfdc12d792
 Removing intermediate container 3405fec63143
 Successfully built 64cfdc12d792
-``` 
+```
 7. Смотрим образы
 ```
 [root@jenkins docker-monolith]# docker images
@@ -93,4 +96,38 @@ molecule_local/ubuntu   latest              969d783d278f        4 days ago      
 docker.io/ubuntu        16.04               5f2bf26e3524        3 weeks ago         123 MB
 docker.io/ubuntu        18.04               775349758637        3 weeks ago         64.2 MB
 docker.io/ubuntu        latest              775349758637        3 weeks ago         64.2 MB
+```    
+
+
+<a name="HW16"></a>
+## Примечание к ДЗ№16
+1. Машина в облаки Goole  
+2. Создание сети  
+```
+-bash-4.2$ docker network create reddit
+53eaea264e25c3fe68cfe7eaece1b87efaa8cbca32c3ae794e1a02fd755a6837
+```  
+
+3. Команды по работе с контейнерами
+```
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db mongo:latest
+docker run -d --network=reddit --network-alias=post nvtikhomirov/post:1.0
+docker run -d --network=reddit --network-alias=comment nvtikhomirov/comment:1.0
+docker run -d --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
+```  
+
+4. Задания со ⭐  
+Запустите контейнеры с другими сетевыми алиасами (так работать не будет)
+```
+docker run -d --network=reddit --network-alias=post_db_test --network-alias=comment_db_test mongo:latest
+docker run -d --network=reddit --network-alias=post_test nvtikhomirov/post:1.0
+docker run -d --network=reddit --network-alias=comment_test nvtikhomirov/comment:1.0
+docker run -d --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
+```   
+Указываем через агрумент -e переменные окружения  
+```
+docker run -d --network=reddit --network-alias=post_db_test --network-alias=comment_db_test mongo:latest
+docker run -d -e POST_DATABASE_HOST=post_db_test --network=reddit --network-alias=post_test nvtikhomirov/post:1.0
+docker run -d -e COMMENT_DATABASE_HOST=comment_db_test --network=reddit --network-alias=comment_test nvtikhomirov/comment:1.0
+docker run -d -e POST_SERVICE_HOST=post_test -e COMMENT_SERVICE_HOST=comment_test --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
 ```
