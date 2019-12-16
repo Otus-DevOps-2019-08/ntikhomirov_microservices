@@ -4,7 +4,8 @@ services:
     image: mongo:${VERSION_MONGODB}
     volumes:
       - post_db:/data/db
-    back_net:
+    networks:
+      back_net:
         aliases:
           - comment_db
           - post_ db
