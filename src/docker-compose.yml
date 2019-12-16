@@ -12,7 +12,7 @@ services:
     build: ./ui
     image: ${USERNAME}/ui:${VERSION_UI}
     ports:
-      - {$PORT}:{$PORT}/tcp
+      - ${PORT}:${PORT}/tcp
     networks:
       - front_net
   post:
