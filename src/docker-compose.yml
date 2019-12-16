@@ -6,7 +6,8 @@ services:
       - post_db:/data/db
     back_net:
         aliases:
-          - reddit
+          - comment_db
+          - post_ db
   ui:
     build: ./ui
     image: ${USERNAME}/ui:${VERSION_UI}
