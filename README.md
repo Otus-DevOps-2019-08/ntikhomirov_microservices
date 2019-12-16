@@ -126,7 +126,7 @@ docker run -d --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
 ```   
 Указываем через агрумент -e переменные окружения  
 ```
-docker run -d --network=reddit --network-alias=post_db_test --network-alias=comment_db_test mongo:latest
+docker run -d --network=reddit --network-alias=post_db_test --network-alias=comment_db_test mongo:latest -v reddit_db:/data/db
 docker run -d -e POST_DATABASE_HOST=post_db_test --network=reddit --network-alias=post_test nvtikhomirov/post:1.0
 docker run -d -e COMMENT_DATABASE_HOST=comment_db_test --network=reddit --network-alias=comment_test nvtikhomirov/comment:1.0
 docker run -d -e POST_SERVICE_HOST=post_test -e COMMENT_SERVICE_HOST=comment_test --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
