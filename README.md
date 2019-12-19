@@ -1,7 +1,7 @@
 ##### Содержание
 [Домашня работа №15](#HW15)    
 [Домашня работа №16](#HW16)    
-
+[Домашня работа №17](#HW17)
 
 
 <a name="HW15"></a>
@@ -126,7 +126,7 @@ docker run -d --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
 ```   
 Указываем через агрумент -e переменные окружения  
 ```
-docker run -d --network=reddit --network-alias=post_db_test --network-alias=comment_db_test mongo:latest
+docker run -d --network=reddit --network-alias=post_db_test --network-alias=comment_db_test mongo:latest -v reddit_db:/data/db
 docker run -d -e POST_DATABASE_HOST=post_db_test --network=reddit --network-alias=post_test nvtikhomirov/post:1.0
 docker run -d -e COMMENT_DATABASE_HOST=comment_db_test --network=reddit --network-alias=comment_test nvtikhomirov/comment:1.0
 docker run -d -e POST_SERVICE_HOST=post_test -e COMMENT_SERVICE_HOST=comment_test --network=reddit -p 9292:9292 nvtikhomirov/ui:1.0
@@ -148,3 +148,12 @@ nvtikhomirov/ui                1.0                 b697c8f0d109        2 days ag
 
 ```  
 Alpine подсказывает каких пакетов нету и какие версии нужны ЫЫ!
+
+
+<a name="HW17"></a>
+## Примечание к ДЗ№17   
+1. Если есть старые сети с таким же наименованием - ЭТО БЕДА (сначало удаляем)
+   ```
+   docker network rm reddit
+   ```
+2. Версию docker-compose 
