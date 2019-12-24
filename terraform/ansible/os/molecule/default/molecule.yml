@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: centos:7
+    log: True
+    privileged: True
+    volume_mounts:
+      - "/var/run/dbus:/var/run/dbus:ro"
+    command: "/usr/sbin/init"
+    tags: update
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    vars:
+        host_name: hostname123
+        run_not_in_container: False
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

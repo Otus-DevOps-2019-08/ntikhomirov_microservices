@@ -1,0 +1,18 @@
+---
+  - name: Check install ansible
+    shell: if [ `pip show ansible|grep -c Version` ] ; then /bin/true; else /bin/false; fi
+    register: ansible_install
+    changed_when: false
+    ignore_errors: true
+    tags:
+      - skip_ansible_lint
+
+  - name: "Install Ansible"
+    shell: |
+      source /opt/rh/rh-python36/enable
+      pip install Ansible
+    when: ansible_install is failed
+    tags:
+      - skip_ansible_lint
+
+...

@@ -1,0 +1,4 @@
+---
+# defaults file for os
+host_name: terraform-test.bscmsc.ru
+run_not_in_container: True

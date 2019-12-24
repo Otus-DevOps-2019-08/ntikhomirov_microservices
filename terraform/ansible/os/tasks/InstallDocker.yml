@@ -1,0 +1,43 @@
+---
+  - name: Install Docker
+    yum:
+      name: docker
+
+  - name: Configure docker demon(docker-storag)
+    template:
+      src: docker-storag.j2
+      dest: /etc/sysconfig/docker-storage
+      owner: root
+      group: root
+  - name: Configure docker demon(docker-storag-setup)
+    template:
+      src: docker-storag-setup.j2
+      dest: /etc/sysconfig/docker-storag-setup
+      owner: root
+      group: root
+
+  - name: Enabled Dockere
+    systemd:
+      name: docker
+      enabled: yes
+      state: started
+    when:
+      - ansible_virtualization_type != "docker"
+
+  - name: Check install docker
+    shell: if [ `pip show docker|grep -c Version` ] ; then /bin/true; else /bin/false; fi
+    register: docker_install
+    changed_when: false
+    ignore_errors: true
+    tags:
+        - skip_ansible_lint
+
+  - name: "Install docker"
+    shell: |
+      source /opt/rh/rh-python36/enable
+      pip install docker
+    when: docker_install is failed
+    tags:
+      - skip_ansible_lint
+
+...
