@@ -1,0 +1,18 @@
+---
+  - name: Check install molecule
+    shell: if [ `pip show molecule|grep -c Version` ] ; then /bin/true; else /bin/false; fi
+    register: molecule_install
+    changed_when: false
+    ignore_errors: true
+    tags:
+      - skip_ansible_lint
+
+  - name: "Install Molecule"
+    shell: |
+      source /opt/rh/rh-python36/enable
+      pip install molecule
+    when: molecule_install is failed
+    tags:
+      - skip_ansible_lint
+
+...

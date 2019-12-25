@@ -1,0 +1,16 @@
+---
+  - name: Sync time
+    yum:
+      name: chrony
+      state: present
+
+  - name: Copy chrony.conf
+    template:
+      src: chrony.conf.j2
+      dest: /etc/chrony.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify: "reboot chrony"
+
+...

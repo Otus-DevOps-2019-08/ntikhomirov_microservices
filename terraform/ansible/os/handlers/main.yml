@@ -1,0 +1,8 @@
+---
+  #Обязательный ребут службы chrony
+  - name: "reboot chrony"
+    systemd:
+      name: chronyd
+      state: started
+      enabled: yes
+...

@@ -1,0 +1,19 @@
+---
+  - name: Install system packet
+    yum:
+      name:
+        - mc
+        - wget
+        - net-tools
+        - bind-utils
+        - curl
+        - epel-release
+        - zip
+        - ntp
+        - ntpdate
+        - telnet
+        - gcc
+        - git
+      state: present
+
+...

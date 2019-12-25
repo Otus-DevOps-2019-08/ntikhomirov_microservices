@@ -1,0 +1,36 @@
+---
+  - name: Install centos-release-scl
+    yum:
+      name:
+        - centos-release-scl
+      state: present
+
+
+  - name: Install python36
+    yum:
+      name:
+        - rh-python36
+        - rh-python36-python-pip
+      state: present
+
+  - name: Check if enabled python 3.6
+    shell: if [ `grep -q rh-python36/enable` ~/.bash_profile ] ; then /bin/true; else /bin/false; fi
+    register: enable_python
+    changed_when: false
+    ignore_errors: true
+    tags:
+      - skip_ansible_lint
+
+
+  - name: "Enable python 3.6"
+    shell: |
+        echo 'source /opt/rh/rh-python36/enable' >> ~/.bash_profile
+        source /opt/rh/rh-python36/enable
+        ln -s /opt/rh/rh-python36/root/usr/bin/python3.6 /usr/bin/python3
+        pip install --upgrade pip
+        pip install selinux
+    when: enable_python is failed
+    tags:
+      - skip_ansible_lint
+
+...

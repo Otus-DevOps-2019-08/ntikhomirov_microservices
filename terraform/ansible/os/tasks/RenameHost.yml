@@ -1,0 +1,7 @@
+---
+  - name: Rename host
+    hostname:
+      name: "{{ host_name }}"
+    when:
+      - ansible_virtualization_type != "docker"
+...

@@ -1,0 +1,37 @@
+---
+- include: Update.yml
+  tags:
+    - update
+    - new
+    - ansible-test
+- include: RenameHost.yml
+  tags:
+    - new
+    - ansible-test
+- include: InstallAdminTools.yml
+  tags:
+    - sys-tools
+    - new
+    - ansible-test
+- include: InstalLPython3.yml
+  tags:
+    - install-python3
+    - ansible-test
+- include: InstallMolecule.yml
+  tags:
+    - install-molecule
+    - ansible-test
+- include: InstallDocker.yml
+  tags:
+    - install-docker
+    - ansible-test
+- include: InstallAnsible.yml
+  tags:
+    - install-ansible
+    - ansible-test
+- include: synctime.yml
+  tags:
+    - new
+    - synctime
+    - join-ad
+...
