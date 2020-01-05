@@ -5,21 +5,17 @@ services:
     volumes:
       - post_db:/data/db
     networks:
-      back_net:
-        aliases:
-          - comment_db
-          - post_ db
+      - reddit
   ui:
     image: ${USERNAME}/ui:${VERSION_UI}
     ports:
       - ${PORT}:${PORT}/tcp
     networks:
-      - front_net
+      - reddit
   post:
     image: ${USERNAME}/post:{$VERSION_POST}
     networks:
-      - back_net
-      - front_net
+      - reddit
   comment:
     image: ${USERNAME}/comment:{$VERSION_COMMENT}
     networks:
@@ -36,8 +32,6 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention=1d'
     networks:
-      - back_net
-      - front_net
       - reddit
 
 volumes:
@@ -45,15 +39,4 @@ volumes:
   prometheus_data:
 
 networks:
-  back_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: "${BACK_NET_IP}"
-  front_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: "${FRONT_NET_IP}"
+  reddit:
