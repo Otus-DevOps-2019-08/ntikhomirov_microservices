@@ -13,11 +13,11 @@ services:
     networks:
       - reddit
   post:
-    image: ${USERNAME}/post:{$VERSION_POST}
+    image: ${USERNAME}/post:${VERSION_POST}
     networks:
       - reddit
   comment:
-    image: ${USERNAME}/comment:{$VERSION_COMMENT}
+    image: ${USERNAME}/comment:${VERSION_COMMENT}
     networks:
       - reddit
 
