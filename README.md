@@ -169,3 +169,18 @@ Alpine подсказывает каких пакетов нету и какие
 6. Ошибка 502 иногда не означает что gitlab плохо, это всего может означать почитай логи и чуть-чуть подожди  
 
 Задачи со * не выполнял.  
+
+<a name="HW20"></a>  
+## Примечание к ДЗ№20  
+
+### Как забрать обраpы  c https://hub.docker.com/ (https://hub.docker.com/u/nvtikhomirov):  
+
+docker pull nvtikhomirov/prometheus  
+docker pull nvtikhomirov/post  
+docker pull nvtikhomirov/comment  
+docker pull nvtikhomirov/ui  
+
+
+Встретил проблемы при запуске, стартовали только два контейнера из 5. Причина поломки - docker-compose монтирует обьявленную рабочую директорию.  
+Эксперементирую с Markdown (вставляю изображения)  
+![Изображение монтирования рабочей директорию](img/s1.png)
