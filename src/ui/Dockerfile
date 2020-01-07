@@ -5,10 +5,10 @@ WORKDIR $APP_HOME
 ADD Gemfile* $APP_HOME/
 RUN apk add --no-cache --virtual .build-deps build-base \
     && apk add ruby-full ruby-dev \
-    && gem install puma -v '3.12.0' --no-ri --no-rdoc \
-    && gem install bundler -v '1.17.2' --no-ri --no-rdoc \
-    && gem install bson_ext -v '1.12.5' --no-ri --no-rdoc \
-    && gem install thrift -v '0.9.3.0' --no-ri --no-rdoc \
+    && gem install puma -v '3.12.0' \
+    && gem install bundler -v '1.17.2' \
+    && gem install bson_ext -v '1.12.5' \
+    && gem install thrift -v '0.9.3.0' \
     && apk del .build-deps
 
 RUN bundle install
