@@ -32,8 +32,6 @@ services:
       - '/var/lib/docker/:/var/lib/docker:ro'
     ports:
       - '8080:8080'
-    networks:
-      - reddit
 
 volumes:
   prometheus_data:
