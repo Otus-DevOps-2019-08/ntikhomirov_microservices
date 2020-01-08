@@ -1,9 +1,10 @@
 ##### Содержание
 [Домашня работа №15](#HW15)    
 [Домашня работа №16](#HW16)    
-[Домашня работа №17](#HW17)
+[Домашня работа №17](#HW17)  
 [Домашня работа №18](#HW18)  
 [Домашня работа №20](#HW20)  
+[Домашня работа №21](#HW21)  
 
 <a name="HW15"></a>
 ## Примечание к ДЗ№15
@@ -191,3 +192,39 @@ docker pull nvtikhomirov/ui
 ![Изображение 5 контейнеров](img/s4.png)  
 ![Изображение 5 контейнеров](img/s5.png)
 Домашку со * не выполнял.
+
+
+<a name="HW21"></a>  
+## Примечание к ДЗ№20  
+
+### Как забрать обраpы  c https://hub.docker.com/ (https://hub.docker.com/u/nvtikhomirov):  
+
+docker pull nvtikhomirov/prometheus  
+docker pull nvtikhomirov/post  
+docker pull nvtikhomirov/comment  
+docker pull nvtikhomirov/ui  
+docker pull nvtikhomirov/alertmanager  
+
+![Изображение образы на hub](img/h21-0.png)  
+
+### Веду принскрин историю:  
+![Изображение контейнеров](img/h21-1.png)  
+
+Вылезла проблема CentOS:   
+![Изображение контейнеров](img/h21-2.png)  
+
+Самое тупой косталь для решение проблемы:    
+![Изображение контейнеров](img/h21-3.png)  
+
+Красивые картиночки(графики):
+![Изображение контейнеров](img/h21-4.png)  
+![Изображение контейнеров](img/h21-5.png)  
+![Изображение контейнеров](img/h21-6.png)  
+
+Подсмотрел в ваших тестах как запускать с несколькими конфигами:
+docker-compose -f docker-compose.yml -f docker-compose-monitoring.yml up -d (запуск)
+docker-compose -f docker-compose.yml -f docker-compose-monitoring.yml down (Остановка)  
+
+Не смог решить проблему отдельного ContextRoot для  cadvisor (пробовал добавить переменную окружения - CADVISOR_HTTP_ROOT)  
+
+Grafana c переменой отработало хорошо (GF_SERVER_ROOT_URL=https://otus.nt33.ru/gf )  
