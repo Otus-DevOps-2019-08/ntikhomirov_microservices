@@ -4,7 +4,8 @@
 [Домашня работа №17](#HW17)  
 [Домашня работа №18](#HW18)  
 [Домашня работа №20](#HW20)  
-[Домашня работа №21](#HW21)  
+[Домашня работа №21](#HW21)
+[Домашня работа №23](#HW23)    
 
 <a name="HW15"></a>
 ## Примечание к ДЗ№15
@@ -228,3 +229,9 @@ docker-compose -f docker-compose.yml -f docker-compose-monitoring.yml down (Ос
 Не смог решить проблему отдельного ContextRoot для  cadvisor (пробовал добавить переменную окружения - CADVISOR_HTTP_ROOT)  
 
 Grafana c переменой отработало хорошо (GF_SERVER_ROOT_URL=https://otus.nt33.ru/gf )  
+
+
+
+<a name="HW22"></a>  
+## Примечание к ДЗ№23
+ 
