@@ -9,7 +9,7 @@ ENV COMMENT_SERVICE_PORT 9292
 WORKDIR $APP_HOME
 ADD Gemfile* $APP_HOME/
 RUN apk add --no-cache --virtual .build-deps build-base \
-    && apk add ruby-full ruby-dev gcc libffi-dev make\
+    && apk add ruby-full ruby-dev gcc libffi-dev make build-base libxml2-dev libxslt-dev\
     && gem install puma -v '3.12.0' \
     && gem install bundler -v '1.17.2' \
     && gem install bson_ext -v '1.12.5' \
