@@ -17,8 +17,6 @@ services:
       - POST_SERVICE_PORT=5000
       - COMMENT_SERVICE_HOST=comment
       - COMMENT_SERVICE_PORT=9292
-    depends_on:
-      - post
     logging:
         driver: "fluentd"
         options:
@@ -32,8 +30,6 @@ services:
     environment:
       - POST_DATABASE_HOST=post_db
       - POST_DATABASE=posts
-    depends_on:
-      - post_db
     ports:
       - "5000:5000"
     logging:
