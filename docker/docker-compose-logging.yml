@@ -8,12 +8,12 @@ services:
       - reddit
     environment:
       - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
-      
+
   fluentd:
     image: ${USERNAME}/fluentd
     ports:
       - "24224:24224"
-      - "24224:24224/"
+      - "24224:24224/udp"
     networks:
       - reddit
 
