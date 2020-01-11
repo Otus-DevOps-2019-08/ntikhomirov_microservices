@@ -18,7 +18,7 @@ services:
       - COMMENT_SERVICE_HOST=comment
       - COMMENT_SERVICE_PORT=9292
     logging:
-        driver: "fluentd"
+        driver: fluentd
         options:
           fluentd-address: localhost:24224
           tag: service.ui
@@ -33,7 +33,7 @@ services:
     ports:
       - "5000:5000"
     logging:
-      driver: "fluentd"
+      driver: fluentd
       options:
         fluentd-address: localhost:24224
         tag: service.post
