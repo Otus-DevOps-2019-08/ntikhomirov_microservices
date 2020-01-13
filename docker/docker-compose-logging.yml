@@ -23,6 +23,15 @@ services:
       - 9200
     ports:
       - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     networks:
       - reddit
 
