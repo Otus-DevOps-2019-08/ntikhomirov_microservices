@@ -5,7 +5,6 @@ services:
     ports:
       - "9411:9411"
     networks:
-      - reddit
       - front_net
       - back_net
     environment:
@@ -16,8 +15,7 @@ services:
     ports:
       - "24224:24224"
       - "24224:24224/udp"
-    networks:
-      - reddit
+
 
   elasticsearch:
     image: elasticsearch:7.4.0
@@ -34,17 +32,14 @@ services:
       memlock:
         soft: -1
         hard: -1
-    networks:
-      - reddit
+
 
   kibana:
     image: kibana:7.4.0
     ports:
       - "5601:5601"
-    networks:
-      - reddit
+
 
 networks:
-  reddit:
   back_net:
   front_net:
