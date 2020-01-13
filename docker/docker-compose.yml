@@ -9,7 +9,7 @@ services:
   ui:
     image: ${USERNAME}/ui:${VERSION_UI}
     ports:
-      - ${PORT}:${PORT}/tcp
+      - 9292:9292/tcp
     networks:
       - reddit
     environment:
