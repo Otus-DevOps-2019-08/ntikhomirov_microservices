@@ -6,6 +6,8 @@ services:
       - "9411:9411"
     networks:
       - reddit
+      - front_net
+      - back_net
     environment:
       - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
@@ -44,3 +46,5 @@ services:
 
 networks:
   reddit:
+  back_net:
+  front_net:
