@@ -13,7 +13,7 @@ services:
   ui:
     image: ${USERNAME}/ui:${VERSION_UI}
     ports:
-      - 9292:9292/tcp
+      - ${PORT}:${PORT}/tcp
     networks:
       - reddit
       front_net:
