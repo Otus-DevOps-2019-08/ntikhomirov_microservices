@@ -1,8 +1,7 @@
----
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: mongodb-deployment
+  name: mongo-deployment
 spec:
   replicas: 1
   selector:
@@ -15,5 +14,5 @@ spec:
         app: mongo
     spec:
       containers:
-      - image: mongo:3.2
-        name: mongo
+        - image: mongo:3.2
+          name: mongo
