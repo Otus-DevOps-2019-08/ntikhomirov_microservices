@@ -7,13 +7,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      app: mongo
   template:
     metadata:
-      name: mongodb
+      name: mongo
       labels:
-        app: mongodb
+        app: mongo
     spec:
       containers:
-      - image: mongodb
-        name: mongodb
+      - image: mongo:3.2
+        name: mongo
